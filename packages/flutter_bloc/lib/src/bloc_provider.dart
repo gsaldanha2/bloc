@@ -80,6 +80,7 @@ class BlocProvider<T extends Bloc<dynamic, dynamic>>
     try {
       return Provider.of<T>(context, listen: false);
     } on Object catch (_) {
+      return null;
       throw FlutterError(
         """
         BlocProvider.of() called with a context that does not contain a Bloc of type $T.
